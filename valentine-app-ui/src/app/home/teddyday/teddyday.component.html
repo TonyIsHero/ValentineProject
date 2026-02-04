@@ -1,0 +1,15 @@
+
+<div class="scene">
+    <div class="text-carousel" [class.shift]="showTeddy">
+        <img src="images/arrow-left.png" *ngIf="leftButtonVisible" (click)="previousText()" alt="arrow-left" class="arrow">
+        <div class="text">{{ displayedText }}</div>
+        <img src="images/arrow-right.png" *ngIf="rightButtonVisible" (click)="nextText()" alt="arrow-right" class="arrow">
+    </div>
+    <div class="animated-section" [class.show]="showTeddy">
+        <ng-lottie
+        [options]="options"
+        (animationCreated)="onAnimationCreated($event)"
+        class="teddy"
+      ></ng-lottie>
+    </div>
+</div>

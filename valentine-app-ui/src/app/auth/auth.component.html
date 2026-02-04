@@ -1,0 +1,49 @@
+<div class="auth-page">
+  <div class="floating-hearts">
+    <span class="heart h1"></span>
+    <span class="heart h2"></span>
+    <span class="heart h3"></span>
+    <span class="heart h4"></span>
+    <span class="heart h5"></span>
+  </div>
+
+  <div class="auth-shell">
+    <div class="auth-card">
+      <header class="auth-header">
+        <p class="eyebrow">Valentine Access</p>
+        <h1>Welcome back, sweetheart</h1>
+        <p class="subtitle">Sign in to keep your love notes safe and sparkling.</p>
+      </header>
+
+      <form [formGroup]="authForm" (ngSubmit)="validateCred()" class="auth-form" aria-label="Sign in">
+        <label class="field">
+          <span class="label">Username</span>
+          <input type="text" formControlName="username" placeholder="Disha" autocomplete="username" />
+        </label>
+
+        <label class="field">
+          <span class="label">Password</span>
+          <input type="password" formControlName="password" placeholder="" autocomplete="current-password" />
+        </label>
+
+        <button type="submit" class="primary-btn">Unlock My Heart</button>
+      </form>
+
+      <div class="auth-footer">
+        <p>Hint: Your love story begins here.</p>
+      </div>
+    </div>
+
+    <aside class="auth-aside">
+      <div class="message-card">
+        <h2>Today's mood</h2>
+        <p>Soft petals, warm whispers, and a password that opens every shared memory.</p>
+        <div class="sparkle-row">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </aside>
+  </div>
+</div>

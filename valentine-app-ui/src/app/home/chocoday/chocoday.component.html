@@ -1,0 +1,63 @@
+<div class="scene">
+    <div class="text-section">
+        <div class="wish-section">
+            <p>Happy Chocolate Day</p>
+        </div>
+    </div>
+    <div class="choco-section">
+        <div class="chocolate-container">
+            <svg
+                    class="chocolate"
+                    width="160"
+                    height="280"
+                    viewBox="0 0 160 280"
+                    >
+                    <defs>
+                        <mask id="eat-mask">
+                        <!-- visible area -->
+                        <rect
+                            x="0"
+                            y="0"
+                            width="160"
+                            height="280"
+                            fill="white"
+                        />
+
+                        <!-- eaten area -->
+                        <rect
+                            x="20"
+                            y="20"
+                            width="120"
+                            [attr.height]="eatenHeight"
+                            fill="black"
+                        />
+                        </mask>
+                    </defs>
+
+                    <!-- chocolate bar -->
+                    <rect
+                        x="20"
+                        y="20"
+                        rx="20"
+                        ry="20"
+                        width="120"
+                        height="240"
+                        fill="#4a2c2a"
+                        mask="url(#eat-mask)"
+                    />
+            </svg>
+        </div>
+        <div class="button-section">
+            <button
+                    (mousedown)="startEating()"
+                    (mouseup)="stopEating()"
+                    (mouseleave)="stopEating()"
+                    (touchstart)="startEating()"
+                    (touchend)="stopEating()"
+                    [disabled]="finished"
+            >
+            Eat chocolate
+            </button>
+        </div>
+    </div>
+</div>

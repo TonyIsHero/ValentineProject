@@ -1,0 +1,32 @@
+<div class="scene">
+  <div class="aura"></div>
+  <div class="petals" aria-hidden="true">
+    <span class="petal p1"></span>
+    <span class="petal p2"></span>
+    <span class="petal p3"></span>
+    <span class="petal p4"></span>
+    <span class="petal p5"></span>
+    <span class="petal p6"></span>
+  </div>
+
+  <div class="layout">
+    <div class="left-pane">
+      <ng-lottie
+        [options]="options"
+        (animationCreated)="onAnimationCreated($event)"
+        class="rose"
+        [class.active]="isSubmitted"
+      ></ng-lottie>
+    </div>
+
+    <div class="right-pane">
+      <div class="headline">Happy Rose Day</div>
+      <div class="rose-message">
+        A rose for my valentine, a promise of love and care, a lifetime together, and a love that will forever be there
+        Sending you a rose to say: You're the best part of my day!
+      </div>
+
+      <button class="love-btn" (click)="onSubmit()">{{text}}</button>
+    </div>
+  </div>
+</div>

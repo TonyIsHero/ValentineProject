@@ -14,6 +14,10 @@ export class ChocodayComponent {
   private intervalId: any;
 
   startEating() {
+    if (this.finished) {
+      this.resetChocolate();
+      return;
+    }
     if (this.finished) return;
 
     this.intervalId = setInterval(() => {
@@ -29,5 +33,11 @@ export class ChocodayComponent {
 
   stopEating() {
     clearInterval(this.intervalId);
+  }
+
+  private resetChocolate() {
+    this.eatenHeight = 0;
+    this.finished = false;
+    this.stopEating();
   }
 }

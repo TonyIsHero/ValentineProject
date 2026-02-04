@@ -1,7 +1,8 @@
 <div class="scene">
     <div class="text-section">
         <div class="wish-section">
-            <p>Happy Chocolate Day</p>
+            <p>Happy Chocolate Day, my love.</p>
+             <p>Life is sweeter with you.</p>
         </div>
     </div>
     <div class="choco-section">
@@ -31,10 +32,46 @@
                             [attr.height]="eatenHeight"
                             fill="black"
                         />
+
+                        <!-- bite marks (lock to the eaten edge) -->
+                        <g
+                            [attr.display]="eatenHeight > 6 ? 'inline' : 'none'"
+                            [attr.transform]="'translate(0,' + eatenHeight + ')'"
+                        >
+                            <!-- wavy bite edge -->
+                            <path
+                                d="M20 20
+                                   Q28 6 36 20
+                                   Q44 36 52 20
+                                   Q60 6 68 20
+                                   Q76 34 84 20
+                                   Q92 4 100 20
+                                   Q108 36 116 20
+                                   Q124 6 132 20
+                                   Q136 24 140 20
+                                   L140 0 L20 0 Z"
+                                fill="black"
+                            />
+
+                            <!-- chunkier, uneven bite chunks -->
+                            <circle cx="30" cy="20" r="9" fill="black" />
+                            <circle cx="48" cy="18" r="12" fill="black" />
+                            <circle cx="70" cy="22" r="10" fill="black" />
+                            <circle cx="90" cy="18" r="13" fill="black" />
+                            <circle cx="112" cy="22" r="9" fill="black" />
+                            <circle cx="124" cy="16" r="7" fill="black" />
+
+                            <!-- small teeth nicks -->
+                            <circle cx="40" cy="10" r="4" fill="black" />
+                            <circle cx="58" cy="8" r="3" fill="black" />
+                            <circle cx="76" cy="9" r="3.5" fill="black" />
+                            <circle cx="98" cy="8" r="3" fill="black" />
+                            <circle cx="118" cy="10" r="4" fill="black" />
+                        </g>
                         </mask>
                     </defs>
 
-                    <!-- chocolate bar -->
+                    <!-- chocolate bar base -->
                     <rect
                         x="20"
                         y="20"
@@ -45,6 +82,25 @@
                         fill="#4a2c2a"
                         mask="url(#eat-mask)"
                     />
+
+                    <!-- rectangular cutouts -->
+                    <g mask="url(#eat-mask)">
+                        <rect x="30" y="32" width="28" height="36" rx="3" ry="3" fill="#3a221f" />
+                        <rect x="66" y="32" width="28" height="36" rx="3" ry="3" fill="#3a221f" />
+                        <rect x="102" y="32" width="28" height="36" rx="3" ry="3" fill="#3a221f" />
+
+                        <rect x="30" y="78" width="28" height="36" rx="3" ry="3" fill="#3a221f" />
+                        <rect x="66" y="78" width="28" height="36" rx="3" ry="3" fill="#3a221f" />
+                        <rect x="102" y="78" width="28" height="36" rx="3" ry="3" fill="#3a221f" />
+
+                        <rect x="30" y="124" width="28" height="36" rx="3" ry="3" fill="#3a221f" />
+                        <rect x="66" y="124" width="28" height="36" rx="3" ry="3" fill="#3a221f" />
+                        <rect x="102" y="124" width="28" height="36" rx="3" ry="3" fill="#3a221f" />
+
+                        <rect x="30" y="170" width="28" height="36" rx="3" ry="3" fill="#3a221f" />
+                        <rect x="66" y="170" width="28" height="36" rx="3" ry="3" fill="#3a221f" />
+                        <rect x="102" y="170" width="28" height="36" rx="3" ry="3" fill="#3a221f" />
+                    </g>
             </svg>
         </div>
         <div class="button-section">
@@ -54,9 +110,8 @@
                     (mouseleave)="stopEating()"
                     (touchstart)="startEating()"
                     (touchend)="stopEating()"
-                    [disabled]="finished"
             >
-            Eat chocolate
+            {{ finished ? 'Eat one more?' : 'Eat chocolate' }}
             </button>
         </div>
     </div>

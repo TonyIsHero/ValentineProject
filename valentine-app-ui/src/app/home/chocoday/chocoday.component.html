@@ -1,8 +1,25 @@
 <div class="scene">
     <div class="text-section">
         <div class="wish-section">
-            <p>Happy Chocolate Day, my love.</p>
-             <p>Life is sweeter with you.</p>
+            <p class="fade-words" [attr.data-key]="animationKey">
+                <span
+                    *ngFor="let w of text1Words; let i = index; trackBy: trackByWord"
+                    [style.animationDelay]="getDelay(i, 0)"
+                >
+                    {{ w }}
+                </span>
+            </p>
+            <p class="fade-words" [attr.data-key]="animationKey">
+                <span
+                    *ngFor="let w of text2Words; let i = index; trackBy: trackByWord"
+                    [style.animationDelay]="getDelay(i, line2Start)"
+                >
+                    {{ w }}
+                </span>
+            </p>
+        </div>
+        <div class="translate-section">
+            <img src="images/translate.png" alt="translate icon" (click)="translateText()" class="tr-icon"/>
         </div>
     </div>
     <div class="choco-section">

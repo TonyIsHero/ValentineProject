@@ -3,23 +3,17 @@
         <div class="wish-section">
             <p class="fade-words" [attr.data-key]="animationKey">
                 <span
-                    *ngFor="let w of text1Words; let i = index; trackBy: trackByWord"
+                    *ngFor="let w of words; let i = index; trackBy: trackByWord"
                     [style.animationDelay]="getDelay(i, 0)"
-                >
-                    {{ w }}
-                </span>
-            </p>
-            <p class="fade-words" [attr.data-key]="animationKey">
-                <span
-                    *ngFor="let w of text2Words; let i = index; trackBy: trackByWord"
-                    [style.animationDelay]="getDelay(i, line2Start)"
                 >
                     {{ w }}
                 </span>
             </p>
         </div>
         <div class="translate-section">
+            <img src="images/arrow-left.png" *ngIf="leftButtonVisible" (click)="prevText()" alt="arrow-left" class="arrow">
             <img src="images/translate.png" alt="translate icon" (click)="translateText()" class="tr-icon"/>
+            <img src="images/arrow-right.png" *ngIf="rightButtonVisible" (click)="nextText()" alt="arrow-right" class="arrow">
         </div>
     </div>
     <div class="choco-section">

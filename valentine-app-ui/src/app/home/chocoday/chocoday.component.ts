@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-chocoday',
@@ -7,38 +7,53 @@ import { Component } from '@angular/core';
   templateUrl: './chocoday.component.html',
   styleUrl: './chocoday.component.css'
 })
-export class ChocodayComponent {
+export class ChocodayComponent implements OnInit {
+
+
   eatenHeight = 0;
   finished = false;
 
-  text1Korean = "행복한 초콜릿 데이!";
-  text1 ="Happy Chocolate Day!";
+  text1Korean = "초콜릿 데이 축하해! 너와 함께라면 삶이 더 달콤해.";
+  text1 ="Happy Chocolate Day! Life is sweeter with you";
 
-  text2Korean = "너와 함께라면 삶이 더 달콤해";
-  text2= "Life is sweeter with you";
+  text2Korean = "당신은 초콜릿보다 더 달콤한 것 같아요.";
+  text2= "I think you are sweeter than a chocolate";
+
+  text3 = "Yes, I know it's cheesy, but it's true!";
+  text3Korean = "네, 좀 진부한 말인 건 알지만 사실이에요!";
+
+  text4= "I hope our love continues to grow like a never-ending chocolate bar.";
+  text4Korean = "우리의 사랑이 끝없이 늘어나는 초콜릿바처럼 계속해서 커져가길 바라요.";
   private intervalId: any;
 
+  enTexts:string[] =[this.text1, this.text2, this.text3, this.text4];
+  krTexts:string[] =[this.text1Korean, this.text2Korean, this.text3Korean, this.text4Korean];
   currentLang ="en";
   wordDelay = 0.2;
   lineGap = 0.4;
   line2Start = 0;
   animationKey = 0;
-  text1Words: string[] = [];
-  text2Words: string[] = [];
+  words: string[] = [];
+  currentTextIndex = 0;
+  leftButtonVisible = false;
+  rightButtonVisible = true;
 
-  constructor() {
-    this.refreshWords(this.text1, this.text2);
+    ngOnInit(): void {
+      this.refreshWords(this.enTexts[this.currentTextIndex]);
   }
 
   private splitWords(text: string): string[] {
     return text.trim().split(/\s+/);
   }
 
-  private refreshWords(line1: string, line2: string) {
-    this.text1Words = this.splitWords(line1);
-    this.text2Words = this.splitWords(line2);
-    this.line2Start = this.text1Words.length * this.wordDelay + this.lineGap;
+  private refreshWords(line: string) {
+    // Clear then re-add to force the word-fade animation to restart
+    this.words = [];
     this.animationKey += 1;
+    setTimeout(() => {
+      this.words = this.splitWords(line);
+      this.animationKey += 1;
+    }, 0);
   }
 
   getDelay(index: number, lineStart: number): string {
@@ -52,12 +67,44 @@ export class ChocodayComponent {
   translateText(){
     if(this.currentLang ==="en"){
       this.currentLang="kr";
-      this.refreshWords(this.text1Korean, this.text2Korean);
+      this.refreshWords(this.krTexts[this.currentTextIndex]);
     }
     else{
       this.currentLang="en";
-      this.refreshWords(this.text1, this.text2);
+      this.refreshWords(this.enTexts[this.currentTextIndex]);
     }
+  }
+
+  prevText(){
+    if(this.currentTextIndex > 0){
+      this.currentTextIndex--;
+      this.rightButtonVisible = true;
+      if(this.currentLang ==="en"){
+        this.refreshWords(this.enTexts[this.currentTextIndex]);
+      }
+      else{
+        this.refreshWords(this.krTexts[this.currentTextIndex]);
+      }
+    }
+      if(this.currentTextIndex ===0){
+        this.leftButtonVisible = false;
+        this.rightButtonVisible = true;
+      }
+  }
+
+  nextText(){
+    if(this.currentTextIndex < this.enTexts.length -1){
+      this.currentTextIndex++;
+      this.leftButtonVisible = true;
+      if(this.currentLang ==="en"){
+        this.refreshWords(this.enTexts[this.currentTextIndex]);
+      }
+      else{
+        this.refreshWords(this.krTexts[this.currentTextIndex]);
+      }
+    }
+      if(this.currentTextIndex === this.enTexts.length -1)
+        this.rightButtonVisible = false;   
   }
 
   startEating() {

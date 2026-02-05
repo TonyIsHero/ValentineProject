@@ -39,9 +39,22 @@
 @keyframes wordFade {
   to { opacity: 1; transform: translateY(0); }
 }
+
+.translate-section{
+  display:flex;
+  gap:1rem;
+  align-items: center;
+  justify-content: center;
+}
+
 .tr-icon{
   width: 30px;
   height: 30px;
+  cursor: pointer;
+}
+
+.arrow{
+  height:25px;
   cursor: pointer;
 }
 

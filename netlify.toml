@@ -1,0 +1,12 @@
+[build]
+  base = "valentine-app-ui"
+  command = "ng build"
+  publish = "dist/valentine-app/browser"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

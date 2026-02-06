@@ -1,0 +1,11 @@
+<div class="day-nav">
+  <button class="nav-btn" (click)="goBack()" [disabled]="!canGoBack" aria-label="Back">
+    <img src="images/arrow-left.png" alt="" />
+  </button>
+  <button class="nav-btn" (click)="goForward()" [disabled]="!canGoForward" aria-label="Forward">
+    <img src="images/arrow-right.png" alt="" />
+  </button>
+  <button class="nav-btn logoff-btn" (click)="logOff()" aria-label="Log off">
+    <img src="images/off.png" alt="" />
+  </button>
+</div>

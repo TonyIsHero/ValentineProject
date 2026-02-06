@@ -1,5 +1,6 @@
 
 <div class="scene">
+    <app-day-nav dayKey="teddy"></app-day-nav>
     <div class="text-carousel" [class.shift]="showTeddy">
         <img src="images/arrow-left.png" *ngIf="leftButtonVisible" (click)="previousText()" alt="arrow-left" class="arrow">
         <div class="text">{{ displayedText }}</div>

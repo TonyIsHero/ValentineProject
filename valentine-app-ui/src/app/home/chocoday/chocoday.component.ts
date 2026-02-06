@@ -1,9 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { DayNavComponent } from '../day-nav/day-nav.component';
 
 @Component({
   selector: 'app-chocoday',
-  imports: [CommonModule],
+  imports: [CommonModule, DayNavComponent],
   templateUrl: './chocoday.component.html',
   styleUrl: './chocoday.component.css'
 })

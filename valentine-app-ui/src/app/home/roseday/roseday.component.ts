@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import {LottieComponent, AnimationOptions} from 'ngx-lottie'
 import { CommonModule } from '@angular/common';
+import { DayNavComponent } from '../day-nav/day-nav.component';
 @Component({
   selector: 'app-roseday',
-  imports: [LottieComponent,CommonModule],
+  imports: [LottieComponent,CommonModule,DayNavComponent],
   templateUrl: './roseday.component.html',
   styleUrl: './roseday.component.css'
 })

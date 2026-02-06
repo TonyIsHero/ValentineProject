@@ -13,12 +13,23 @@ export class AuthComponent implements OnInit{
 
   authForm!:FormGroup;
   sampleuser : user ={username:'roydisha', password:'Loveyourdick'}
+  adminuser : user ={username:'admin', password:'admin'}
 
   validateCred(){
     if(this.authForm.valid)
     {
       if((this.authForm.value.username===this.sampleuser.username)&&(this.authForm.value.password===this.sampleuser.password))
+      {
+        localStorage.setItem('isAuthenticated', 'true');
+        localStorage.setItem('isAdmin', 'false');
         this.router.navigate(['/home']);
+      }
+      else if((this.authForm.value.username===this.adminuser.username)&&(this.authForm.value.password===this.adminuser.password))
+      {
+        localStorage.setItem('isAuthenticated', 'true');
+        localStorage.setItem('isAdmin', 'true');
+        this.router.navigate(['/home']);
+      }
 
       else
         console.log("Fail");

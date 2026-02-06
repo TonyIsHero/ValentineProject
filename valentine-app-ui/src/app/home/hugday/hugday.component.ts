@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LottieComponent, AnimationOptions } from 'ngx-lottie';
+import { DayNavComponent } from '../day-nav/day-nav.component';
 @Component({
   selector: 'app-hugday',
-  imports: [CommonModule, LottieComponent],
+  imports: [CommonModule, LottieComponent, DayNavComponent],
   templateUrl: './hugday.component.html',
   styleUrl: './hugday.component.css'
 })

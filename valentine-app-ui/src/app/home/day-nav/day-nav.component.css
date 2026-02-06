@@ -1,0 +1,42 @@
+.day-nav{
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    display: flex;
+    gap: 0.75rem;
+    z-index: 5;
+}
+
+.logoff-btn{
+    margin-left: 0.25rem;
+}
+
+.nav-btn{
+    border: 1px solid rgba(0,0,0,0.08);
+    background: #ffffff;
+    color: #2b2b2b;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 0.35rem 0.5rem;
+    border-radius: 999px;
+    box-shadow: 0 10px 22px -14px rgba(0,0,0,0.35);
+    cursor: pointer;
+    transition: transform 150ms ease, box-shadow 150ms ease, opacity 150ms ease;
+}
+
+.nav-btn img{
+    display: block;
+    width: 18px;
+    height: 18px;
+    object-fit: contain;
+}
+
+.nav-btn:hover:not(:disabled){
+    transform: translateY(-2px);
+    box-shadow: 0 16px 26px -16px rgba(0,0,0,0.4);
+}
+
+.nav-btn:disabled{
+    opacity: 0.4;
+    cursor: not-allowed;
+}

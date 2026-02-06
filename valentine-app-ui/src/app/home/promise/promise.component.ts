@@ -2,11 +2,11 @@ import { Component } from '@angular/core';
 import { DayNavComponent } from '../day-nav/day-nav.component';
 
 @Component({
-  selector: 'app-proposeday',
+  selector: 'app-promise',
   imports: [DayNavComponent],
-  templateUrl: './proposeday.component.html',
-  styleUrl: './proposeday.component.css'
+  templateUrl: './promise.component.html',
+  styleUrl: './promise.component.css'
 })
-export class ProposedayComponent {
+export class PromiseComponent {
 
 }

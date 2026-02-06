@@ -1,1 +1,30 @@
-<p>kissday works!</p>
+<div class="scene">
+    <div class="dynamic-section" *ngIf ="!missesMe">
+        <div class="text-section">
+            <p (click)="nextText()" [class.fade-in]="animateText">{{displayedText}}</p>
+        </div>
+        <div class="animated-section">
+            <ng-lottie
+        [options]="options"
+        (animationCreated)="onAnimationCreated($event)"
+        class="multi-animation"
+      ></ng-lottie>
+        </div>
+    </div>
+
+    <div class="kiss-section" *ngIf="missesMe">
+        <p>Kiss Me then ?</p>
+        <div class="buttons">
+            <button class="yes">Yes</button>
+            <button
+                class="no"
+                (mouseenter)="dodgeNo()"
+                (click)="dodgeNo()"
+                [style.--no-x.px]="noX"
+                [style.--no-y.px]="noY"
+            >
+                No
+            </button>
+        </div>
+    </div>
+</div>

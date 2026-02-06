@@ -16,8 +16,8 @@ export class ChocodayComponent implements OnInit {
   text1Korean = "초콜릿 데이 축하해! 너와 함께라면 삶이 더 달콤해.";
   text1 ="Happy Chocolate Day! Life is sweeter with you";
 
-  text2Korean = "당신은 초콜릿보다 더 달콤한 것 같아요.";
-  text2= "I think you are sweeter than a chocolate";
+  text2Korean = "사실, 나는 네가 초콜릿보다 더 달콤하다고 생각해.";
+  text2= "Actually, I think you are sweeter than a chocolate";
 
   text3 = "Yes, I know it's cheesy, but it's true!";
   text3Korean = "네, 좀 진부한 말인 건 알지만 사실이에요!";

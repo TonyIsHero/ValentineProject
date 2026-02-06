@@ -1,1 +1,12 @@
-<p>hugday works!</p>
+<div class="scene">
+    <div class="text-section">
+            <p (click)="showNextText()">{{displayedText}}</p>
+    </div>
+    <div class="animated-section">
+         <ng-lottie
+        [options]="options"
+        (animationCreated)="onAnimationCreated($event)"
+        class="multi-animation"
+      ></ng-lottie>
+    </div>
+</div>

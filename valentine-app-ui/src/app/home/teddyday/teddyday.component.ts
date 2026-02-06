@@ -40,6 +40,7 @@ export class TeddydayComponent implements OnInit, OnDestroy {
   }
 
   generateText(index: number) {
+    clearInterval(this.timerId);
     let i = 0;
       this.timerId = setInterval(() => {
         this.displayedText = this.texts[this.currentTextIndex].slice(0,i+1);

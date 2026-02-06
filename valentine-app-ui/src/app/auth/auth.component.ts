@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 export class AuthComponent implements OnInit{
 
   authForm!:FormGroup;
-  sampleuser : user ={username:'roydisha', password:'Loveyourdick'}
+  sampleuser : user ={username:'roydisha', password:'032023'}
   adminuser : user ={username:'admin', password:'admin'}
 
   validateCred(){

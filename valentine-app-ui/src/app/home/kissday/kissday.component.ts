@@ -9,8 +9,9 @@ import { LottieComponent, AnimationOptions } from 'ngx-lottie';
 })
 export class KissdayComponent implements OnInit {
 
-  missesMe = false;
+  missesMe = true;
   wannaKiss = false;
+  kissesMe = false;
   timeOfDay : 'Morning' | 'Afternoon' | 'Evening' = 'Morning';
   text1 :string = "";
   text2 = "You miss me?";
@@ -48,6 +49,7 @@ export class KissdayComponent implements OnInit {
   }
 
   nextText(): void{
+    console.log(this.currentTextIndex);
     if(this.currentTextIndex < this.texts.length-1){
       this.currentTextIndex++;
       this.displayedText = this.texts[this.currentTextIndex];
@@ -57,7 +59,10 @@ export class KissdayComponent implements OnInit {
       }, 0);
     }
     else
-      this.missesMe= true;
+    {
+      this.missesMe= false;
+      this.wannaKiss = true;
+    }
   }
 
   onAnimationCreated(animation: any) {
@@ -77,4 +82,13 @@ export class KissdayComponent implements OnInit {
     this.noY = y;
   }
 
+  kissMe(){
+    this.wannaKiss = false;
+    this.kissesMe = true;
+    this.options = {
+      path:'images/kiss.json',
+      autoplay:true,
+      loop:true
+  };
+}
 }

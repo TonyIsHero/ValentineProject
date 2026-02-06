@@ -1,5 +1,5 @@
 <div class="scene">
-    <div class="dynamic-section" *ngIf ="!missesMe">
+    <div class="dynamic-section fade-section" *ngIf ="missesMe">
         <div class="text-section">
             <p (click)="nextText()" [class.fade-in]="animateText">{{displayedText}}</p>
         </div>
@@ -12,10 +12,10 @@
         </div>
     </div>
 
-    <div class="kiss-section" *ngIf="missesMe">
+    <div class="kiss-section fade-section" *ngIf="wannaKiss">
         <p>Kiss Me then ?</p>
         <div class="buttons">
-            <button class="yes">Yes</button>
+            <button class="yes" (click)="kissMe()">Yes</button>
             <button
                 class="no"
                 (mouseenter)="dodgeNo()"
@@ -26,5 +26,13 @@
                 No
             </button>
         </div>
+    </div>
+
+    <div class="kiss-animation fade-section" *ngIf="kissesMe">
+        <ng-lottie
+        [options]="options"
+        (animationCreated)="onAnimationCreated($event)"
+        class="multi-animation"
+      ></ng-lottie>
     </div>
 </div>

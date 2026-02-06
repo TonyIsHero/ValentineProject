@@ -11,6 +11,10 @@
     gap: 2rem;
 }
 
+.fade-section{
+    animation: softFade 350ms ease-out;
+}
+
 .text-section{
 
     display: flex;
@@ -99,5 +103,10 @@
 
 @keyframes fadeIn{
     from{ opacity: 0; transform: translateY(6px); }
+    to{ opacity: 1; transform: translateY(0); }
+}
+
+@keyframes softFade{
+    from{ opacity: 0; transform: translateY(4px); }
     to{ opacity: 1; transform: translateY(0); }
 }

@@ -17,6 +17,11 @@ export class RosedayComponent {
     autoplay:false,
     loop:false
   };
+  heartOptions: AnimationOptions = {
+    path: '/images/heartsflying.json',
+    autoplay: true,
+    loop: true
+  };
 
   onAnimationCreated(animation: any) {
     console.log('Lottie animation created');

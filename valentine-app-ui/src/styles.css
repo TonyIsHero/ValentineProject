@@ -4,5 +4,16 @@
 
 body{
     overflow-y: hidden;
-      font-family: "Nunito", sans-serif;
+    min-height: 100vh;
+    font-family: "Nunito", sans-serif;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+img,
+svg{
+    max-width: 100%;
+    height: auto;
 }

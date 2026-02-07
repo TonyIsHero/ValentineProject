@@ -1,2 +1,31 @@
 <app-day-nav dayKey="propose"></app-day-nav>
-<p>proposeday works!</p>
+<div class="scene">
+    <div class="left-section">
+        <ng-lottie
+        [options]="heartOptions"
+        (animationCreated)="onAnimationCreated($event)"
+        class="hearts"
+      ></ng-lottie>
+    </div>
+    <div class="center-section">
+        <div class="animation">
+        <div class="couple-wrapper" [class.show]="centerFadeIn">
+          <ng-lottie *ngIf="centerVisible"
+            [options]="coupleOptions"
+            (animationCreated)="onCreated($event)"
+            class="couple"
+          ></ng-lottie>
+        </div>
+      </div>
+      <div class="messages" (click)="nextText()">
+        <p [class.show]="textFadeIn">{{ displayedText }}</p>
+      </div>
+    </div>
+    <div class="right-section">
+        <ng-lottie
+        [options]="heartOptions"
+        (animationCreated)="onAnimationCreated($event)"
+        class="hearts"
+      ></ng-lottie>
+    </div>
+</div>

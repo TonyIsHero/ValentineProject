@@ -13,6 +13,8 @@
     letter-spacing: 0.2px;
     gap: 2.5rem;
     padding: 2rem;
+    background: radial-gradient(circle at 20% 10%, #f9fbff 0%, #eef5ff 50%, #e6f0ff 100%);
+    animation: sceneFade 500ms ease-out;
 }
 
 .text-section{
@@ -57,6 +59,11 @@
 @keyframes floatIn{
     from{ opacity: 0; transform: translateY(10px) scale(0.98); }
     to{ opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes sceneFade{
+    from{ opacity: 0; transform: translateY(6px); }
+    to{ opacity: 1; transform: translateY(0); }
 }
 
 @media (max-width: 900px){

@@ -10,6 +10,8 @@
   gap: 2rem;
   padding: 2rem 1rem;
   flex-wrap: wrap;
+  background: radial-gradient(circle at top, #fff7f0 0%, #fff0e5 55%, #fde6d6 100%);
+  animation: sceneFade 500ms ease-out;
 }
 .text-section{
   display:flex;
@@ -101,4 +103,9 @@ button:disabled {
     flex-direction: column;
     gap: 1.5rem;
   }
+}
+
+@keyframes sceneFade {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
 }

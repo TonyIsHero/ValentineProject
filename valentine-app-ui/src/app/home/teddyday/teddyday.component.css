@@ -10,6 +10,8 @@
   gap: 2rem;
   padding: 2rem 1rem;
   flex-wrap: wrap;
+  background: radial-gradient(circle at top, #f7fff9 0%, #eefbf2 55%, #e2f5ea 100%);
+  animation: sceneFade 500ms ease-out;
 }
 
 .text-carousel{
@@ -41,8 +43,8 @@
 }
 
 .animated-section{
-  height:45%;
-  width: 45%;
+  height:35%;
+  width: 35%;
   opacity: 0;
   transform: translateY(10px);
   transition: opacity 0.5s ease, transform 0.5s ease;
@@ -67,4 +69,9 @@
   .text-carousel.shift{
     transform: translateX(-10px);
   }
+}
+
+@keyframes sceneFade{
+  from{ opacity: 0; transform: translateY(6px); }
+  to{ opacity: 1; transform: translateY(0); }
 }

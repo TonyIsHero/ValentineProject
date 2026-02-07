@@ -11,10 +11,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: radial-gradient(circle at 20% 20%, #fff4f6 0%, #ffe7ee 35%, #f6dce6 70%, #f3cddb 100%);
+  background: radial-gradient(circle at 20% 20%, #fff3f8 0%, #ffe8f0 40%, #f7dbe7 70%, #f0cfe0 100%);
   position: relative;
   overflow: hidden;
   color: var(--ink);
+  animation: sceneFade 600ms ease-out;
 }
 
 .aura {
@@ -123,6 +124,11 @@
   0% { transform: scale(1); opacity: 0.75; }
   50% { transform: scale(1.05); opacity: 0.9; }
   100% { transform: scale(1); opacity: 0.75; }
+}
+
+@keyframes sceneFade {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 @media (max-width: 700px) {

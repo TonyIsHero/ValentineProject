@@ -5,6 +5,8 @@
     min-height: 100vh;
     height: auto;
     padding: 2rem 1rem;
+    background: radial-gradient(circle at top, #fff6fb 0%, #ffeef6 55%, #fbe2ef 100%);
+    animation: sceneFade 500ms ease-out;
 }
 
 .dynamic-section{
@@ -114,5 +116,10 @@
 
 @keyframes softFade{
     from{ opacity: 0; transform: translateY(4px); }
+    to{ opacity: 1; transform: translateY(0); }
+}
+
+@keyframes sceneFade{
+    from{ opacity: 0; transform: translateY(6px); }
     to{ opacity: 1; transform: translateY(0); }
 }

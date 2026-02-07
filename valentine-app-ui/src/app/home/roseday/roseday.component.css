@@ -81,9 +81,11 @@
 }
 
 .rose-message {
-  font-size: 25px;
+  font-size: clamp(16px, 4.5vw, 25px);
   font-weight: 500;
   color: #7c1f3b;
+  max-width: 90vw;
+  text-align: center;
 }
 
 .love-btn {

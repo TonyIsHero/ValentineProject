@@ -1,0 +1,53 @@
+.scene{
+    display: flex;
+    gap: 2rem;
+    align-items: stretch;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.left-section,
+.right-section{
+    display: flex;
+    align-items: stretch;
+    height: 100%;
+}
+
+.left-section .hearts,
+.right-section .hearts{
+    display: block;
+    height: 100%;
+    width: min(260px, 28vw);
+}
+
+.center-section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 65%;;
+}
+.animation{
+    height: 80%;
+}
+.messages{
+    text-align: center;
+    font-size: 30px;
+    font-weight: 500;
+    color: #2b2b2b;
+}
+
+.couple-wrapper{
+    transition: opacity 360ms ease, transform 360ms ease;
+    opacity: 0;
+    transform: translateY(6px);
+    /* reserve space to avoid layout shift when ng-lottie is removed */
+    min-width: 300px;
+    min-height: 260px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.couple-wrapper.show{
+    opacity: 1;
+    transform: translateY(0);
+}

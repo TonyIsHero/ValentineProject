@@ -2,13 +2,17 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 80vh;
+    min-height: 100vh;
+    height: auto;
+    padding: 2rem 1rem;
 }
 
 .dynamic-section{
     display: flex;
     align-items: center;
     gap: 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .fade-section{
@@ -16,21 +20,21 @@
 }
 
 .text-section{
-
     display: flex;
     text-align: center;
     justify-content: center;
     cursor: pointer;
-    font-size: 30px;
+    font-size: clamp(20px, 5vw, 30px);
     font-weight: 500;
     color: #2b2b2b;
     animation: fadeIn 500ms ease-out;
+    max-width: 90vw;
 }
 
 .animation-section,
 .animated-section{
     display:flex;
-    height: 70%;
+    height: auto;
     padding: 1.25rem;
     animation: fadeIn 600ms ease-out;
 }
@@ -41,8 +45,9 @@
     align-items: center;
     justify-content: center;
     gap: 1rem;
-    font-size: 40px;
+    font-size: clamp(24px, 7vw, 40px);
     font-weight: 700;
+    text-align: center;
 }
 
 .buttons{
@@ -50,6 +55,7 @@
     gap: 1rem;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
 .buttons button{

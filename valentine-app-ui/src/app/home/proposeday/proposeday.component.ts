@@ -14,7 +14,7 @@ export class ProposedayComponent implements OnInit {
   animIdx: number = 0;
   anim:any;
   texts: string[] = [
-    "HI !",
+    "Hi!",
     "I think you already know this",
     "But I wanted to say it anyway",
     "I LOVE YOU",

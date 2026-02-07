@@ -18,7 +18,7 @@
         </div>
       </div>
       <div class="messages" (click)="nextText()">
-        <p>{{ displayedText }}</p>
+        <p [class.show]="textFadeIn">{{ displayedText }}</p>
       </div>
     </div>
     <div class="right-section">

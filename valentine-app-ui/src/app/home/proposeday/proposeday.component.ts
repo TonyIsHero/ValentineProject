@@ -36,12 +36,14 @@ export class ProposedayComponent implements OnInit {
   animation: any;
   centerVisible: boolean = true;
   centerFadeIn: boolean = false;
+  textFadeIn: boolean = true;
 
   private paths = [
     '/images/couple.json',
     '/images/couple2.json',
-    '/images/couple3.json'
+    '/images/couple3.json',
   ];
+
 
 
   ngOnInit(): void {
@@ -56,6 +58,8 @@ export class ProposedayComponent implements OnInit {
   }
 
   nextText(): void {
+    this.textFadeIn = false;
+    setTimeout(() => this.textFadeIn = true, 20);
     if (this.currentIndex < this.texts.length - 1)
       this.currentIndex++;
     else
@@ -86,20 +90,23 @@ nextAnim(): void {
     this.listener = undefined;
   }
 
-  // hide and recreate the ng-lottie component to ensure a fresh instance
+  // fade out, then recreate the ng-lottie component to ensure a fresh instance
   this.centerFadeIn = false;
-  this.centerVisible = false;
   this.animIdx = (this.animIdx + 1) % this.paths.length;
-  this.coupleOptions = {
-    path: this.paths[this.animIdx],
-    autoplay: true,
-    loop: false
-  };
-  console.log('next animation set:', this.coupleOptions.path);
-  // wait a bit to allow fade-out/spacing, then recreate and fade in
+  // wait for fade-out to finish before swapping
   setTimeout(() => {
-    this.centerVisible = true;
-    setTimeout(() => this.centerFadeIn = true, 20);
-  }, 200);
+    this.centerVisible = false;
+    this.coupleOptions = {
+      path: this.paths[this.animIdx],
+      autoplay: true,
+      loop: false
+    };
+    console.log('next animation set:', this.coupleOptions.path);
+    // wait a tick to remount, then fade back in
+    setTimeout(() => {
+      this.centerVisible = true;
+      setTimeout(() => this.centerFadeIn = true, 20);
+    }, 0);
+  }, 360);
 }
 }

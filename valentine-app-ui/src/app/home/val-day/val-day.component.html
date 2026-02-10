@@ -1,7 +1,7 @@
 <app-day-nav dayKey="val"></app-day-nav>
 <div class="scene">
   <div class="greeting-section" *ngIf="greetingNow"> 
-    <h1 style="color: #531b2c;" (click)="nextGreeting();">{{ greetingTexts[greetingIndex] }}</h1>
+    <h1 style="color: #531b2c; cursor: pointer;" (click)="nextGreeting();">{{ displayedText }}</h1>
   </div>
   <div class="photo-album" *ngIf="isPhotoAlbumOpen">
     <div class="album-header">
@@ -35,7 +35,14 @@
     ></ng-lottie>
   </div>
   <div class="animation-wrap" *ngIf ="isAnimationWrapVisible">
-    Animation and Text here
+    <div class="text" style="color: #531b2c; cursor: pointer;" (click)="nextWrapText() ">
+      <p>{{displayedText}}</p>
+    </div>
   </div>
-  <div class="final-text"></div>
 </div>
+<audio
+#bgaudio
+src="images/they-call-this-love.mp3"
+loop
+playsinline>
+</audio>

@@ -44,9 +44,9 @@ export class TeddydayComponent implements OnInit, OnDestroy {
     clearInterval(this.timerId);
     let i = 0;
       this.timerId = setInterval(() => {
-        this.displayedText = this.texts[this.currentTextIndex].slice(0,i+1);
+        this.displayedText = this.texts[index].slice(0,i+1);
         i++;
-        if(i>=this.texts[this.currentTextIndex].length){
+        if(i>=this.texts[index].length){
           clearInterval(this.timerId);
       }
   },50);

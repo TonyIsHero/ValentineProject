@@ -1,9 +1,51 @@
 <app-day-nav dayKey="prom"></app-day-nav>
 <div class="scene">
+  <div class="top-section">
+    <h1 style="color: #531b2c;">Happy Promise Day, Baby! 💖</h1>
+  </div>
+  <ng-lottie class="floating-hearts left" [options]="flyingHeartsOptions"></ng-lottie>
+  <div class="book">
+    <ng-container *ngIf="pendingPageIndex !== null">
+      <div class="page incoming" [class.prev]="flipDirection === 'prev'">
+        <p class="text">{{ pages[pendingPageIndex!] }}</p>
+      </div>
+    </ng-container>
+
+    <div
+      class="page current"
+      [class.flipping]="isFlipping"
+      [class.next]="flipDirection === 'next'"
+      [class.prev]="flipDirection === 'prev'"
+      (animationend)="onFlipEnd()"
+    >
+      <p class="text">{{ pages[currentPage] }}</p>
+    </div>
+
+    <button
+      class="nav-arrow left"
+      *ngIf="currentPage > 0"
+      (click)="prevPage()"
+      [disabled]="isFlipping"
+      aria-label="Previous page"
+    >
+      <img src="images/arrow-left.png" alt="" />
+    </button>
+    <button
+      class="nav-arrow right"
+      *ngIf="currentPage < pages.length - 1"
+      (click)="nextPage()"
+      [disabled]="isFlipping"
+      aria-label="Next page"
+    >
+      <img src="images/arrow-right.png" alt="" />
+    </button>
+  </div>
+  <ng-lottie class="floating-hearts right" [options]="flyingHeartsOptions"></ng-lottie>
+
+  <div class="animation-wrap">
     <ng-lottie
-      class="bg-hearts"
-      [options]="heartOptions"
-      aria-hidden="true"
+      class="handshake"
+      [options]="handshakeOptions"
     ></ng-lottie>
-    Promise Day  
+  </div>
 </div>
